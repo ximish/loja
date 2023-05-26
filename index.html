@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>BlackJack</title>
+      <link rel="stylesheet" href="style.css" />
+      <!-- ----------------------------------- -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&family=Sono:wght@400;500;700&family=Amatic+SC:wght@400;700&family=Play&display=swap"
+         rel="stylesheet"
+      />
+      <!-- ----------------------------------- -->
+   </head>
+   <body>
+      <div style="display: block" class="start-bg" id="start-bg">
+         <div class="start-text">
+            <img src="foto/logo.png" />
+         </div>
+         <div class="start-black"></div>
+         <div class="start-container" style="display: block">
+            <div
+               class="miresevini"
+               style="text-align: center; margin-bottom: 2rem"
+            >
+               <h1>MIRESEVINI!</h1>
+               <h2>SHENONI TE DHENAT ME POSHT</h2>
+            </div>
+            <div class="emri-field">
+               <form name="frm1">
+                  <input
+                     autocomplete="off"
+                     id="emri-field"
+                     type="text"
+                     name="notempty"
+                     value=""
+                     placeholder=""
+                  />
+                  <p class="a12" id="input">Emri</p>
+               </form>
+
+               <br />
+               <form name="frm2">
+                  <input
+                     autocomplete="off"
+                     id="mbiemri-field"
+                     type="text"
+                     name="notempty"
+                     value=""
+                     placeholder=""
+                  />
+                  <p class="a12" id="input">Mbiemri</p>
+               </form>
+
+               <br />
+               <form name="frm3">
+                  <input
+                     autocomplete="off"
+                     id="nickname-field"
+                     type="text"
+                     name="notempty"
+                     value=""
+                     placeholder=""
+                  />
+                  <p class="a12" id="input">nickname</p>
+               </form>
+               <br />
+               <br />
+            </div>
+            <p id="empty-input"></p>
+            <button onclick="gameStarter()" id="submit-btn">SUBMIT</button>
+         </div>
+      </div>
+
+      <!-- ===================================== -->
+
+      <div style="display: none" id="container" class="container">
+         <div class="left-side">
+            <div id="player-name"></div>
+            <div class="cash-menu">
+               <div id="win"></div>
+               <div id="lose"></div>
+               <div class="cash">CASH:<span class="money-color">$</span></div>
+               <div id="player-cash">0</div>
+            </div>
+            <div id="plus-money"></div>
+            <div id="minus-money"></div>
+         </div>
+         <div class="middle">
+            <div class="dealer">
+               <h2>DEALER</h2>
+               <div class="dealer-cards cards">
+                  <img id="dealer1" src="" alt="" />
+                  <img id="dealer2" src="" alt="" />
+                  <img id="dealer3" src="" alt="" />
+                  <img id="dealer4" src="" alt="" />
+                  <img id="dealer5" src="" alt="" />
+                  <img id="dealer6" src="" alt="" />
+               </div>
+            </div>
+
+            <div class="hide-container">
+               <div id="hide1" class="hide"></div>
+               <div id="hide2" class="hide"></div>
+            </div>
+            <div id="dealer-win">
+               <h1>DEALER WIN</h1>
+            </div>
+
+            <div id="win-lose-box">
+               <h1 id="win-lose"></h1>
+               <br />
+               <p id="money-win"></p>
+            </div>
+            <div class="player">
+               <h2 id="player-nickname"></h2>
+               <div style="display: none" id="ace" class="ace">
+                  <button
+                     style="opacity: 1"
+                     onclick="aceBtn1()"
+                     id="acebtn1"
+                  ></button>
+                  <button
+                     style="opacity: 1"
+                     onclick="aceBtn2()"
+                     id="acebtn2"
+                  ></button>
+               </div>
+               <div class="player-cards cards">
+                  <img id="player1" src="" alt="" />
+                  <img id="player2" src="" alt="" />
+                  <img id="player3" src="" alt="" />
+                  <img id="player4" src="" alt="" />
+                  <img id="player5" src="" alt="" />
+                  <img id="player6" src="" alt="" />
+               </div>
+            </div>
+         </div>
+         <div class="right-side">
+            <div class="table">
+               <p style="text-align: center; margin-bottom: 0.6rem">Total</p>
+               <p id="player-total"></p>
+               <p id="dealer-total">Dealer:</p>
+            </div>
+         </div>
+         <div style="display: none" id="credit-check">
+            Nuk keni shenuar creditat!
+         </div>
+         <div class="game-buttons">
+            <button onclick="newCard()" id="new-cardbtn">NEW CARD</button>
+            <button onclick="theGame()" style="display: none" id="lojapofillon">
+               <img src="foto/play.svg" alt="" />
+            </button>
+            <form name="frm4">
+               <br />
+               <div style="display: none" id="money-entered"></div>
+               <input
+                  autocomplete="off"
+                  type="number"
+                  name="notempty"
+                  id="ok-input"
+                  placeholder="0"
+               />
+               <label for="paret">CREDITS</label>
+            </form>
+            <button onclick="gameHoldBtn()" id="holdbtn">HOLD</button>
+         </div>
+         <div
+            id="gamee"
+            style="
+               position: absolute;
+               background-color: rgba(0, 0, 0, 0.644);
+               top: 0;
+               bottom: 0;
+               left: 0;
+               right: 0;
+               display: none;
+            "
+         >
+            <div class="game-starter">
+               <div id="game-starter">
+                  <h2 id="teksti-nfillim"></h2>
+                  <h4>
+                     JU DUHET TE SHTYPNI NJEREN PREJ OPCIONEVE PER TE FITUAR NJE
+                     SHUME TE PARAVE MENDOHUNI MIRE!!!
+                  </h4>
+                  <div class="asdf">
+                     <input onclick="moneycheck()" type="button" value="?" />
+                     <input onclick="moneycheck()" type="button" value="?" />
+                     <input onclick="moneycheck()" type="button" value="?" />
+                  </div>
+               </div>
+
+               <div style="display: none" id="pack-1" class="game-starter-pack">
+                  <h3>URIME JU KENI FITUAR $5000!!</h3>
+                  <h3>SHTYPNI BUTONIN START PER TE FILLUAR LOJEN.</h3>
+                  <button onclick="enterGame()">START</button>
+               </div>
+               <div style="display: none" id="pack-2" class="game-starter-pack">
+                  <h3>URIME JU KENI FITUAR $7000!!</h3>
+                  <h3>SHTYPNI BUTONIN START PER TE FILLUAR LOJEN.</h3>
+                  <button onclick="enterGame()">START</button>
+               </div>
+               <div style="display: none" id="pack-3" class="game-starter-pack">
+                  <h3>URIME JU KENI FITUAR $10000!!</h3>
+                  <h3>SHTYPNI BUTONIN START PER TE FILLUAR LOJEN.</h3>
+                  <button onclick="enterGame()">START</button>
+               </div>
+               <img src="foto/dealer.png" alt="" />
+            </div>
+         </div>
+         <div onclick="soundSettings()" class="settings">
+            <img
+               id="settings-icon"
+               aria-checked="false"
+               src="foto/settings-before.svg"
+               alt=""
+            />
+         </div>
+         <div style="display: none" id="settings" onclick="soundChange()">
+            <div class="settings-container">
+               <div onclick="soundSettings()" class="exit-settings">
+                  <img src="foto/x-icon.svg" alt="" />
+               </div>
+               <p>Music</p>
+               <input
+                  type="range"
+                  id="s1"
+                  min="0"
+                  max="100"
+                  value="60"
+                  step="10"
+               />
+               <p>Effect</p>
+
+               <input
+                  type="range"
+                  id="s2"
+                  min="0"
+                  max="100"
+                  value="60"
+                  step="10"
+               />
+               <div class="return-main">
+                  <p>Return to Main</p>
+                  <button onclick="returnMain()" id="return-main">MAIN</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div style="display: none">
+         <img id="2" src="foto/2.png" alt="" />
+         <img id="3" src="foto/3.png" alt="" />
+         <img id="4" src="foto/4.png" alt="" />
+         <img id="5" src="foto/5.png" alt="" />
+         <img id="6" src="foto/6.png" alt="" />
+         <img id="7" src="foto/7.png" alt="" />
+         <img id="8" src="foto/8.png" alt="" />
+         <img id="9" src="foto/9.png" alt="" />
+         <img id="10" src="foto/10.png" alt="" />
+         <img id="J" src="foto/J.png" alt="" />
+         <img id="Q" src="foto/Q.png" alt="" />
+         <img id="K" src="foto/K.png" alt="" />
+         <img id="A" src="foto/A.png" alt="" />
+         <img id="unknown" src="foto/unknown.png" alt="" />
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+      <script src="java.js"></script>
+   </body>
+</html>

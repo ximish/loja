@@ -1,0 +1,19 @@
+	funksionet				Variables
+
+- startGame()				- player
+- gameRunning()				- host
+- exitGame()				- playerCard1
+- newCard()				- playerCard2
+- hostCard()				- hostCard1
+					- hostCard2
+					- cards
+					- sum
+					- isAlive
+					- isBlackjack
+					- submitBtn
+					- startBtn
+					- money
+					- playerCash
+					- playerName
+					- hostStop
+					- hostNewCard

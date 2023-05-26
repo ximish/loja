@@ -1,0 +1,43 @@
+<form name="frm1">
+                  <label for="text">EMRI:</label>
+                  <input
+                     id="emri-field"
+                     style="margin-left: 3.5rem; margin-bottom: 0.5rem"
+                     type="text"
+                     name="notempty"
+                     value=""
+                     placeholder="...."
+                  />
+               </form>
+
+               <br />
+               <form name="frm2">
+                  <label for="text">MBIEMRI:</label>
+                  <input
+                     id="mbiemri-field"
+                     style="margin-left: 1.6rem"
+                     type="text"
+                     name="notempty"
+                     value=""
+                     placeholder="...."
+                  />
+               </form>
+
+               <br />
+               <form name="frm3">
+                  <label for="text">NICKNAME:</label>
+                  <input
+                     id="nickname-field"
+                     style="margin-left: 0.6rem"
+                     type="text"
+                     name="notempty"
+                     value=""
+                     placeholder="...."
+                  />
+               </form>
+
+
+
+
+z-indexat: 
+
